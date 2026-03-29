@@ -34,6 +34,8 @@ module.exports = {
                 darkGreen: '#40994A',
                 darkBlue: '#0044F2',
                 darkPink: '#F85156',
+                courtBlue: '#152546',  // ← tu color de marca
+
             },
 
             fontFamily: {
@@ -48,6 +50,9 @@ module.exports = {
     safelist: [
         {
             pattern: /icon-/,
-        }
+        },
+        'bg-courtBlue',
+        'text-courtBlue',
+        'border-courtBlue',
     ]
 };
