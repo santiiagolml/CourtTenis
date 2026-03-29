@@ -3,21 +3,18 @@ module.exports = {
     content: [
         "./src/Resources/**/*.blade.php",
         "./src/Resources/**/*.js",
-        "../../../resources/themes/courttenis/views/**/*.blade.php",  // ← agregar esto
+        "../../../resources/themes/courttenis/views/**/*.blade.php",
     ],
     theme: {
         container: {
             center: true,
-
             screens: {
                 "2xl": "1440px",
             },
-
             padding: {
                 DEFAULT: "90px",
             },
         },
-
         screens: {
             sm: "525px",
             md: "768px",
@@ -29,7 +26,6 @@ module.exports = {
             991: "991px",
             868: "868px",
         },
-
         extend: {
             colors: {
                 navyBlue: "#060C3B",
@@ -37,21 +33,25 @@ module.exports = {
                 darkGreen: '#40994A',
                 darkBlue: '#0044F2',
                 darkPink: '#F85156',
+                // Tus colores de marca
+                courtNavy: "#172748",
+                courtBlue: "#274871",
             },
-
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 dmserif: ["DM Serif Display", "serif"],
             },
         }
     },
-
     plugins: [],
-
     safelist: [
-        {
-            pattern: /icon-/,
-        },
-        'bg-blue-600',  // ← agregar esto temporalmente
+        { pattern: /icon-/ },
+        // Genera todas las variantes de tus colores personalizados
+        { pattern: /bg-(navyBlue|lightOrange|darkGreen|darkBlue|darkPink|courtNavy|courtBlue)/ },
+        { pattern: /text-(navyBlue|lightOrange|darkGreen|darkBlue|darkPink|courtNavy|courtBlue)/ },
+        { pattern: /border-(navyBlue|lightOrange|darkGreen|darkBlue|darkPink|courtNavy|courtBlue)/ },
+        // Colores estándar de Tailwind más usados
+        { pattern: /bg-(blue|red|green|yellow|gray|white|black)-(100|200|300|400|500|600|700|800|900)/ },
+        { pattern: /text-(blue|red|green|yellow|gray|white|black)-(100|200|300|400|500|600|700|800|900)/ },
     ]
 };
