@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4f76bb98510e8bd297f1a0d8ff91b5d",
+    "content-hash": "f34c801fe2deb747cab185b39c7695dd",
     "packages": [
         {
             "name": "apimatic/core",
@@ -4613,6 +4613,92 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.10.0"
             },
             "time": "2025-07-25T09:04:22+00:00"
+        },
+        {
+            "name": "mercadopago/dx-php",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mercadopago/sdk-php.git",
+                "reference": "a108e93c1f00793feb5425fdcfae182bee08b505"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/a108e93c1f00793feb5425fdcfae182bee08b505",
+                "reference": "a108e93c1f00793feb5425fdcfae182bee08b505",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.22",
+                "phpunit/phpunit": "^10.2",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MercadoPago\\": "src/MercadoPago"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Mercado Pago PHP SDK",
+            "homepage": "https://github.com/mercadopago/sdk-php",
+            "support": {
+                "source": "https://github.com/mercadopago/sdk-php/tree/3.1.0"
+            },
+            "time": "2025-03-11T20:52:06+00:00"
+        },
+        {
+            "name": "midnightgb/mercadopago",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Midnightgb/mercadopago-payment-gateaway.git",
+                "reference": "3d15e48e86ff648f7b64cc94a2fb956bd9289b97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Midnightgb/mercadopago-payment-gateaway/zipball/3d15e48e86ff648f7b64cc94a2fb956bd9289b97",
+                "reference": "3d15e48e86ff648f7b64cc94a2fb956bd9289b97",
+                "shasum": ""
+            },
+            "require": {
+                "mercadopago/dx-php": "3.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Midnight\\MercadoPago\\Providers\\MercadoPagoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Midnight\\MercadoPago\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julian Vasquez",
+                    "email": "julian@javm.tech"
+                }
+            ],
+            "description": "Mercado Pago Payment Gateway for Bagisto",
+            "support": {
+                "issues": "https://github.com/Midnightgb/mercadopago-payment-gateaway/issues",
+                "source": "https://github.com/Midnightgb/mercadopago-payment-gateaway/tree/1.4.0"
+            },
+            "time": "2025-08-29T14:23:46+00:00"
         },
         {
             "name": "moneyphp/money",

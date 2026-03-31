@@ -40,12 +40,15 @@ use Webkul\Stripe\Providers\StripeServiceProvider;
 use Webkul\Tax\Providers\TaxServiceProvider;
 use Webkul\Theme\Providers\ThemeServiceProvider;
 use Webkul\User\Providers\UserServiceProvider;
+use Midnight\MercadoPago\Providers\MercadoPagoServiceProvider; // 👈 agrega este use
+
 
 return [
     /**
      * Application service providers.
      */
     AppServiceProvider::class,
+
 
     /**
      * Webkul's service providers.
@@ -89,4 +92,6 @@ return [
     TaxServiceProvider::class,
     ThemeServiceProvider::class,
     UserServiceProvider::class,
+    MercadoPagoServiceProvider::class, // 👈 agrega esta línea
+
 ];

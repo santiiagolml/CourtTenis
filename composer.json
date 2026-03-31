@@ -36,6 +36,7 @@
         "laravel/tinker": "^2.10",
         "laravel/ui": "^4.0",
         "maatwebsite/excel": "^3.1.46",
+        "midnightgb/mercadopago": "^1.4",
         "mpdf/mpdf": "^8.2",
         "nesbot/carbon": "^3.0",
         "paypal/paypal-server-sdk": "^2.0",
@@ -65,6 +66,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Midnight\\MercadoPago\\": "packages/mercadopago-payment-gateaway/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Webkul\\Admin\\": "packages/Webkul/Admin/src",
