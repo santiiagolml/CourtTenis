@@ -11,7 +11,7 @@
                     ::value="address.id"
                 />
             </x-shop::form.control-group>
-
+        {{--
             <!-- Company Name -->
             <x-shop::form.control-group>
                 <x-shop::form.control-group.label>
@@ -27,6 +27,7 @@
             </x-shop::form.control-group>
 
             {!! view_render_event('bagisto.shop.checkout.onepage.address.form.company_name.after') !!}
+        --}}
 
             <!-- First Name -->
             <div class="grid grid-cols-2 gap-x-5 max-md:grid-cols-1">
@@ -89,7 +90,7 @@
             </x-shop::form.control-group>
 
             {!! view_render_event('bagisto.shop.checkout.onepage.address.form.email.after') !!}
-
+{{--
             <!-- Vat ID -->
             <template v-if="controlName=='billing'">
                 <x-shop::form.control-group>
@@ -110,6 +111,7 @@
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.vat_id.after') !!}
             </template>
+--}}
 
             <!-- Street Address -->
             <x-shop::form.control-group>
@@ -183,7 +185,7 @@
                 </x-shop::form.control-group>
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.country.after') !!}
-
+                {{--
                 <!-- State -->
                 <x-shop::form.control-group>
                     <x-shop::form.control-group.label class="{{ core()->isStateRequired() ? 'required' : '' }} !mt-0">
@@ -229,6 +231,7 @@
                 </x-shop::form.control-group>
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.state.after') !!}
+                --}}
             </div>
 
             <div class="grid grid-cols-2 gap-x-5 max-md:grid-cols-1">
@@ -251,7 +254,7 @@
                 </x-shop::form.control-group>
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.city.after') !!}
-
+{{--
                 <!-- Postcode -->
                 <x-shop::form.control-group>
                     <x-shop::form.control-group.label class="{{ core()->isPostCodeRequired() ? 'required' : '' }} !mt-0">
@@ -271,6 +274,7 @@
                 </x-shop::form.control-group>
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.postcode.after') !!}
+--}}
             </div>
 
             <!-- Phone Number -->
@@ -327,6 +331,7 @@
             data() {
                 return {
                     selectedCountry: this.address.country,
+                    selectedCountry: 'CO',
 
                     countries: [],
 
