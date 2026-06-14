@@ -141,70 +141,74 @@
 
             {!! view_render_event('bagisto.shop.checkout.onepage.address.form.address.after') !!}
 
-            {{-- País, Estado - ocultos pero funcionales --}}
+            {{-- País - oculto --}}
             <div class="hidden">
-                <!-- Country -->
                 <x-shop::form.control-group class="!mb-4">
                     <x-shop::form.control-group.control
                         type="select"
                         ::name="controlName + '.country'"
-                        ::value="address.country"
                         v-model="selectedCountry"
                         rules="{{ core()->isCountryRequired() ? 'required' : '' }}"
                         :label="trans('shop::app.checkout.onepage.address.country')"
-                        :placeholder="trans('shop::app.checkout.onepage.address.country')"
                     >
-                        <option value="CO" selected>Colombia</option>
+                        <option value="CO">Colombia</option>
                     </x-shop::form.control-group.control>
                 </x-shop::form.control-group>
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.country.after') !!}
 
-                <!-- State -->
+                {{-- Estado - oculto con v-model forzado --}}
                 <x-shop::form.control-group>
-                    <template v-if="states">
-                        <template v-if="haveStates">
-                            <x-shop::form.control-group.control
-                                type="select"
-                                ::name="controlName + '.state'"
-                                rules="{{ core()->isStateRequired() ? 'required' : '' }}"
-                                ::value="address.state"
-                                :label="trans('shop::app.checkout.onepage.address.state')"
-                            >
-                                <option value="">
-                                    @lang('shop::app.checkout.onepage.address.select-state')
-                                </option>
-                                <option
-                                    v-for='(state, index) in states[selectedCountry]'
-                                    :value="state.code"
-                                >
-                                    @{{ state.default_name }}
-                                </option>
-                            </x-shop::form.control-group.control>
-                        </template>
-                        <template v-else>
-                            <x-shop::form.control-group.control
-                                type="text"
-                                ::name="controlName + '.state'"
-                                ::value="address.state"
-                                rules="{{ core()->isStateRequired() ? 'required' : '' }}"
-                                :label="trans('shop::app.checkout.onepage.address.state')"
-                            />
-                        </template>
-                    </template>
+                    <x-shop::form.control-group.control
+                        type="select"
+                        ::name="controlName + '.state'"
+                        v-model="selectedState"
+                        :label="trans('shop::app.checkout.onepage.address.state')"
+                    >
+                        <option value="CO-CUN">Cundinamarca</option>
+                        <option value="CO-ANT">Antioquia</option>
+                        <option value="CO-VAC">Valle del Cauca</option>
+                        <option value="CO-ATL">Atlántico</option>
+                        <option value="CO-BOL">Bolívar</option>
+                        <option value="CO-SAN">Santander</option>
+                        <option value="CO-COR">Córdoba</option>
+                        <option value="CO-NAR">Nariño</option>
+                        <option value="CO-TOL">Tolima</option>
+                        <option value="CO-CAU">Cauca</option>
+                        <option value="CO-HUI">Huila</option>
+                        <option value="CO-MAG">Magdalena</option>
+                        <option value="CO-BOY">Boyacá</option>
+                        <option value="CO-CAL">Caldas</option>
+                        <option value="CO-RIS">Risaralda</option>
+                        <option value="CO-QUI">Quindío</option>
+                        <option value="CO-CES">Cesar</option>
+                        <option value="CO-MET">Meta</option>
+                        <option value="CO-NSA">Norte de Santander</option>
+                        <option value="CO-CHO">Chocó</option>
+                        <option value="CO-LAG">La Guajira</option>
+                        <option value="CO-SUC">Sucre</option>
+                        <option value="CO-PUT">Putumayo</option>
+                        <option value="CO-CAS">Casanare</option>
+                        <option value="CO-ARA">Arauca</option>
+                        <option value="CO-AMZ">Amazonas</option>
+                        <option value="CO-VID">Vaupés</option>
+                        <option value="CO-GUV">Guaviare</option>
+                        <option value="CO-GUA">Guainía</option>
+                        <option value="CO-VIC">Vichada</option>
+                        <option value="CO-SAP">San Andrés</option>
+                    </x-shop::form.control-group.control>
                 </x-shop::form.control-group>
 
                 {!! view_render_event('bagisto.shop.checkout.onepage.address.form.state.after') !!}
             </div>
 
-            {{-- Ciudad y Postcode - ocultos pero funcionales --}}
+            {{-- Ciudad y Postcode - ocultos --}}
             <div class="hidden">
                 <x-shop::form.control-group>
                     <x-shop::form.control-group.control
                         type="text"
                         ::name="controlName + '.city'"
-                        ::value="address.city"
-                        rules="required"
+                        v-model="selectedCity"
                         :label="trans('shop::app.checkout.onepage.address.city')"
                     />
                 </x-shop::form.control-group>
@@ -215,8 +219,7 @@
                     <x-shop::form.control-group.control
                         type="text"
                         ::name="controlName + '.postcode'"
-                        ::value="address.postcode"
-                        rules="{{ core()->isPostCodeRequired() ? 'required' : '' }}|postcode"
+                        v-model="selectedPostcode"
                         :label="trans('shop::app.checkout.onepage.address.postcode')"
                     />
                 </x-shop::form.control-group>
@@ -267,7 +270,7 @@
                         email: '',
                         address: [],
                         country: 'CO',
-                        state: '',
+                        state: 'CO-CUN',
                         city: 'Bogotá',
                         postcode: '110111',
                         phone: '',
@@ -278,6 +281,9 @@
             data() {
                 return {
                     selectedCountry: 'CO',
+                    selectedState: 'CO-CUN',
+                    selectedCity: 'Bogotá',
+                    selectedPostcode: '110111',
                     countries: [],
                     states: null,
                 }
