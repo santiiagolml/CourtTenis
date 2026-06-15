@@ -42,7 +42,9 @@
                             <div 
                                 class="relative cursor-pointer max-md:max-w-full max-md:flex-auto"
                                 v-for="(payment, index) in methods"
+                                v-if="payment.method == 'mercadopago_standard'"
                             >
+                            <p>@{{ payment.method }}</p>
                                 {!! view_render_event('bagisto.shop.checkout.payment-method.before') !!}
 
                                 <input 
