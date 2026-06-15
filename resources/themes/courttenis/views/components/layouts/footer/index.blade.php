@@ -1,7 +1,4 @@
 <footer class="ct-footer">
-
-        URL: {{ asset('themes/shop/courttenis/build/assets/footer.png') }}
-
- 
+        <img src="{{ bagisto_asset('images/footer.png') }}" alt="Footer">
 </footer>
 
