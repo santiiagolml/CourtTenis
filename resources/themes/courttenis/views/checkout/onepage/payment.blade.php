@@ -41,10 +41,8 @@
                         <div class="flex flex-wrap gap-7 max-md:gap-4 max-sm:gap-2.5">
                             <div 
                                 class="relative cursor-pointer max-md:max-w-full max-md:flex-auto"
-                                v-for="(payment, index) in methods"
-                                v-if="payment.method == 'mercadopago_standard'"
+                                v-for="(payment, index) in filteredMethods"
                             >
-                            <p>@{{ payment.method }}</p>
                                 {!! view_render_event('bagisto.shop.checkout.payment-method.before') !!}
 
                                 <input 
@@ -127,6 +125,17 @@
 
             emits: ['processing', 'processed'],
 
+            computed: {
+                filteredMethods() {
+                    if (! this.methods) return null;
+
+                    // methods puede venir como objeto o array, por eso Object.values
+                    return Object.values(this.methods).filter(
+                        (payment) => payment.method === 'mercadopago_standard'
+                    );
+                },
+            },
+            
             methods: {
                 store(selectedMethod) {
                     this.$emit('processing', 'review');
